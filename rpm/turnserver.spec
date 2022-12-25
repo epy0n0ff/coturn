@@ -1,5 +1,5 @@
 Name:		turnserver
-Version:	4.5.2
+Version:	4.6.1
 Release:	0%{dist}
 Summary:	Coturn TURN Server
 
@@ -15,6 +15,10 @@ Requires:	openssl, sqlite, libevent >= 2.0.0, mysql-libs, postgresql-libs
 Requires:	hiredis, perl-DBI, perl-libwww-perl
 Requires:	telnet
 %if 0%{?el6}
+BuildRequires:	epel-release, mysql-devel
+Requires:	epel-release, mysql-libs
+%endif
+%if 0%{?el9}
 BuildRequires:	epel-release, mysql-devel
 Requires:	epel-release, mysql-libs
 %else
