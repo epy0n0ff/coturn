@@ -30,7 +30,7 @@ fi
 
 cd ${CPWD}
 
-PACKS="libevent-devel mysql-devel sqlite sqlite-devel"
+PACKS="libevent-devel mariadb-devel sqlite sqlite-devel"
 sudo dnf -y install --enablerepo=crb ${PACKS}
 ER=$?
 if ! [ ${ER} -eq 0 ] ; then

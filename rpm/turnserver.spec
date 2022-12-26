@@ -11,7 +11,7 @@ Source0:	http://turnserver.open-sys.org/downloads/v%{version}/%{name}-%{version}
 BuildRequires:	gcc, make, redhat-rpm-config, sqlite-devel
 BuildRequires:	openssl-devel, libevent-devel >= 2.0.0, postgresql-devel
 BuildRequires:	hiredis-devel
-Requires:	openssl, sqlite, libevent >= 2.0.0, mysql-libs, postgresql-libs
+Requires:	openssl, sqlite, libevent >= 2.0.0, postgresql-libs
 Requires:	hiredis, perl-DBI, perl-libwww-perl
 Requires:	telnet
 %if 0%{?el6}
@@ -19,11 +19,10 @@ BuildRequires:	epel-release, mysql-devel
 Requires:	epel-release, mysql-libs
 %endif
 %if 0%{?el9}
+BuildRequires:	mariadb-devel
+%else
 BuildRequires:	epel-release, mysql-devel
 Requires:	epel-release, mysql-libs
-%else
-BuildRequires:	mariadb-devel
-Requires: 	mariadb-libs
 %endif
 
 
