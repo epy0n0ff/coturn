@@ -19,11 +19,11 @@ BuildRequires:	epel-release, mysql-devel
 Requires:	epel-release, mysql-libs
 %endif
 %if 0%{?el9}
-BuildRequires:	epel-release, mysql-devel
-Requires:	epel-release, mysql-libs
-%else
 BuildRequires:	mariadb-devel
 Requires: 	mariadb-libs
+%else
+BuildRequires:	epel-release, mysql-devel
+Requires:	epel-release, mysql-libs
 %endif
 
 
