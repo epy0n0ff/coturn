@@ -4,12 +4,34 @@
 
 CPWD=`pwd`
 
-. ./common.pre.build.sh
+# Common preparation script.
+. ./build.settings.sh
+
+# DIRS
+
+rm -rf ${BUILDDIR}
+
+mkdir -p ${BUILDDIR}
+mkdir -p ${BUILDDIR}/SOURCES
+mkdir -p ${BUILDDIR}/SPECS
+mkdir -p ${BUILDDIR}/RPMS
+mkdir -p ${BUILDDIR}/tmp
+
+# Common packs
+
+PACKS="make gcc redhat-rpm-config rpm-build doxygen openssl-devel git wget"
+sudo dnf -y install --enablerepo=crb ${PACKS}
+ER=$?
+if ! [ ${ER} -eq 0 ] ; then
+    echo "Cannot install packages ${PACKS}"
+    exit -1
+fi
+
 
 cd ${CPWD}
 
 PACKS="libevent-devel mysql-devel sqlite sqlite-devel"
-sudo yum -y install ${PACKS}
+sudo dnf -y install --enablerepo=crb ${PACKS}
 ER=$?
 if ! [ ${ER} -eq 0 ] ; then
     echo "Cannot install package(s) ${PACKS}"
